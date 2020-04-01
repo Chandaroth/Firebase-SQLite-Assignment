@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="General">
+        <menu>
+            <item
+                android:id="@+id/home"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Show Data" />
+            <item
+                android:id="@+id/add_data"
+                android:icon="@drawable/ic_add_box_black_24dp"
+                android:title="Add Data" />
+        </menu>
+    </item>
+    <item android:title="Personal Account">
+        <menu>
+            <item
+                android:id="@+id/menu_logout"
+                android:icon="@drawable/ic_close_black_24dp"
+                android:title="Logout" />
+            <item
+                android:id="@+id/menu_resetpassword"
+                android:icon="@drawable/ic_low_priority_black_24dp"
+                android:title="Reset Password" />
+        </menu>
+    </item>
+
+</menu>

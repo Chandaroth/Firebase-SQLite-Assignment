@@ -76,8 +76,7 @@ public class Register extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Register.this,"User Created To Firebase",Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-
+                            startActivity(new Intent(getApplicationContext(),Login.class));
                             String name = mFullName.getText().toString();
                             String email = mEmail.getText().toString();
                             String phone = mPhone.getText().toString();
