@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
                             String phone = mPhone.getText().toString();
                             String password = mPassword.getText().toString();
 
-                            boolean status = dbHandler.addUser(name, email, phone,password);
+                            boolean status = dbHandler.addUser(email);
 
                             if (status) {
                                 Toast.makeText(Register.this, "SQLite Insert Successfully", Toast.LENGTH_SHORT).show();
