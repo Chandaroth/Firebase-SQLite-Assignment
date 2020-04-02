@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,7 +37,7 @@ public class DrawerActivity extends AppCompatActivity implements
     NavigationView navigationView;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-
+    //TextView txtAccountEmail;
 
     FirebaseAuth fAuth;
     @Override
@@ -61,6 +64,17 @@ public class DrawerActivity extends AppCompatActivity implements
         fragmentTransaction.add(R.id.container_fragment,new MainFragment());
         fragmentTransaction.commit();
 
+       /* // Get the transferred data from source login.
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if(extras != null){
+            String data = extras.getString("message"); // retrieve the data using keyName
+
+            View hView =  navigationView.inflateHeaderView(R.layout.drawer_header);
+            TextView tv = (TextView)hView.findViewById(R.id.txtEmailAccount);
+            tv.setText(data);
+
+        }*/
 
     }
 
@@ -118,6 +132,9 @@ public class DrawerActivity extends AppCompatActivity implements
                 return true;
             case R.id.menu_resetpassword:
                 //
+                ResetPassword();
+
+
                 return true;
         }
 
@@ -134,4 +151,41 @@ public class DrawerActivity extends AppCompatActivity implements
         fragmentTransaction.replace(R.id.container_fragment,new FragmentSecond());
         fragmentTransaction.commit();
     }
+
+    public void ResetPassword(){
+        final EditText resetMail=new EditText(DrawerActivity.this);
+        final AlertDialog.Builder passwordResetDialog=new AlertDialog.Builder(DrawerActivity.this);
+        passwordResetDialog.setTitle("Reset Password?");
+        passwordResetDialog.setMessage("Enter Your Email To Received Reset Link.");
+        passwordResetDialog.setView(resetMail);
+        passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String mail= resetMail.getText().toString();
+                fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(DrawerActivity.this,"Reset Link Sent To Your Email.",Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(DrawerActivity.this,"Error ! Reset Link is Not Sent" + e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        passwordResetDialog.create().show();
+    }
+
 }
+
+
