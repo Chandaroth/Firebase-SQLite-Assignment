@@ -64,17 +64,15 @@ public class DrawerActivity extends AppCompatActivity implements
         fragmentTransaction.add(R.id.container_fragment,new MainFragment());
         fragmentTransaction.commit();
 
-       /* // Get the transferred data from source login.
+        // Get the transferred data from source login.
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if(extras != null){
             String data = extras.getString("message"); // retrieve the data using keyName
-
-            View hView =  navigationView.inflateHeaderView(R.layout.drawer_header);
-            TextView tv = (TextView)hView.findViewById(R.id.txtEmailAccount);
-            tv.setText(data);
-
-        }*/
+            View headerView = navigationView.inflateHeaderView(R.layout.drawer_header);
+            TextView tv= headerView.findViewById(R.id.txtEmailAccount);
+            tv.setText("Account: "+data);
+        }
 
     }
 
