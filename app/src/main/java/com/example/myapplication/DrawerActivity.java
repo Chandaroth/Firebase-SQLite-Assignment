@@ -67,22 +67,12 @@ public class DrawerActivity extends AppCompatActivity implements
         // Get the transferred data from source login.
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        /*if(extras != null){
-            String data = extras.getString("message"); // retrieve the data using keyName
-            View headerView = navigationView.inflateHeaderView(R.layout.drawer_header);
-            TextView tv= headerView.findViewById(R.id.txtEmailAccount);
-            tv.setText("Account: "+data);
-        }*/
 
         if(extras != null){
             String data = extras.getString("message"); // retrieve the data using keyName
-            /*
-            View headerView = navigationView.inflateHeaderView(R.layout.drawer_header);
-            TextView tv= headerView.findViewById(R.id.txtEmailAccount);
-            */
+
             View header = navigationView.getHeaderView(0);
             TextView tv = (TextView) header.findViewById(R.id.txtEmailAccount);
-
             tv.setText("Account: "+data);
         }
     }
