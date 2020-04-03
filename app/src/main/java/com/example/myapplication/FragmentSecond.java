@@ -1,8 +1,5 @@
 package com.example.myapplication;
-
 import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-
 import com.example.myapplication.firebase.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,7 +30,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import static android.app.Activity.RESULT_OK;
 
 
@@ -50,10 +43,8 @@ public class FragmentSecond extends Fragment{
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
-
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-
     private StorageTask mUploadTask;
 
 
@@ -61,6 +52,7 @@ public class FragmentSecond extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second,container,false);
+
         mButtonChooseImage = view.findViewById(R.id.button_choose_image);
         mButtonUpload = view.findViewById(R.id.button_upload);
         mTextViewShowUploads = view.findViewById(R.id.text_view_show_uploads);
@@ -99,14 +91,8 @@ public class FragmentSecond extends Fragment{
                 fragmentTransaction.commit();
             }
         });
-
-
-
         return view;
     }
-
-
-
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -120,8 +106,6 @@ public class FragmentSecond extends Fragment{
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
-
-
 
 
     private void uploadFile() {
@@ -143,8 +127,7 @@ public class FragmentSecond extends Fragment{
 
                             Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    //taskSnapshot.getDownloadUrl().toString());
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+                                    mImageUri.toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                             mEditTextFileName.setText("");
@@ -175,8 +158,8 @@ public class FragmentSecond extends Fragment{
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
-            mImageView.setImageURI(mImageUri);
-            //Picasso.with(this).load(mImageUri).into(mImageView);
+
+            Picasso.with(getActivity()).load(mImageUri).into(mImageView);
 
 
         }

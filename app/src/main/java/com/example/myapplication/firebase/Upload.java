@@ -1,5 +1,4 @@
 package com.example.myapplication.firebase;
-
 public class Upload {
     private String mName;
     private String mImageUrl;

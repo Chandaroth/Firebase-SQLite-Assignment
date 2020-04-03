@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DrawerActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener
-        ,MainFragment.onFragmentBtnSelected{
+        {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -133,15 +133,6 @@ public class DrawerActivity extends AppCompatActivity implements
 
 
         return true;
-    }
-
-    @Override
-    public void onButtonSelected() {
-        //Load Second Fragment
-        fragmentManager=getSupportFragmentManager();
-        fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,new FragmentSecond());
-        fragmentTransaction.commit();
     }
 
     public void ResetPassword(){
