@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FF9800"
     android:orientation="vertical">
 
@@ -12,10 +12,27 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"
         app:srcCompat="@drawable/ic_logo" />
+
+    <TextView
+        android:id="@+id/txtEmailAccount2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginLeft="15dp"
+        android:text="Mini Project VN 2020"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtEmailAccount"
@@ -24,9 +41,9 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
         android:text="Account: myfiredb@gmail.com"
+        android:fontFamily="sans-serif-black"
         android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

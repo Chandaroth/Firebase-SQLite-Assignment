@@ -30,6 +30,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/progress_bar"
         android:layout_below="@id/edit_text_file_name"
+        android:src="@drawable/ic_menu_gallery"
         android:layout_marginTop="16dp" />
 
     <ProgressBar

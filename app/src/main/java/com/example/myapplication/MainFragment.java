@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.database.User;
 import com.example.myapplication.firebase.Upload;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -60,13 +58,13 @@ public class MainFragment extends Fragment {
                 //Toast.makeText(getActivity(), "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                DetailFragement detailFragement = new DetailFragement();
+                DetailFragment detailFragment = new DetailFragment();
                 Bundle args = new Bundle();
                 Upload clickedItem=mUploads.get(position);
                 args.putString("IName", clickedItem.getName());
                 args.putString("IUrl", clickedItem.getImageUrl());
-                detailFragement.setArguments(args);
-                fragmentTransaction.replace(R.id.container_fragment, detailFragement);
+                detailFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.container_fragment, detailFragment);
                 fragmentTransaction.commit();
             }
 

@@ -128,10 +128,11 @@ public class DrawerActivity extends AppCompatActivity implements
             case R.id.menu_resetpassword:
                 ResetPassword();
                 return true;
+
+            case R.id.menu_about:
+                startActivity(new Intent(getApplicationContext(),AboutActivity.class));
+                return true;
         }
-
-
-
         return true;
     }
 

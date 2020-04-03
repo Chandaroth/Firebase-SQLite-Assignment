@@ -24,5 +24,13 @@
                 android:title="Reset Password" />
         </menu>
     </item>
+    <item android:title="Application">
+        <menu>
+            <item
+                android:id="@+id/menu_about"
+                android:icon="@drawable/ic_developer_mode_black_24dp"
+                android:title="About" />
+        </menu>
+    </item>
 
 </menu>
