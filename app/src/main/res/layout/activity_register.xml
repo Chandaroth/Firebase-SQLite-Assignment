@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/orangeback"
+    android:background="#FF9800"
     tools:context=".Register">
 
     <TextView
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Create New Account"
+        android:fontFamily="sans-serif-black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -125,7 +126,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
-        android:background="#FF9800"
+        android:background="#FFFFFF"
         android:text="REGISTRER"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

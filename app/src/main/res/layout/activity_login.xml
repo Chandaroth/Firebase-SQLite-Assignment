@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/orangeback"
+    android:background="#FF9800"
     tools:context=".Login">
 
     <TextView
@@ -22,6 +22,7 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:fontFamily="sans-serif-black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login Account"
@@ -80,7 +81,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
-        android:background="#FF9800"
+        android:background="#FFFFFF"
         android:text="LOGIN"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

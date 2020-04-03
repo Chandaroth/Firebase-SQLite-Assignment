@@ -10,8 +10,9 @@
     >
 
     <Button
+        android:background="#FF9800"
         android:id="@+id/button_choose_image"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Choose file" />
 
@@ -42,13 +43,15 @@
 
     <Button
         android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
+        android:background="#FF9800"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Upload" />
 
     <TextView
+        android:textColor="#FF9800"
         android:id="@+id/text_view_show_uploads"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
