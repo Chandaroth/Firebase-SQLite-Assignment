@@ -15,6 +15,7 @@ public class MainFragment extends Fragment {
     private onFragmentBtnSelected listener;
     @Nullable
     @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_main,container,false);
