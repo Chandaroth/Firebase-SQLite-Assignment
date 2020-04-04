@@ -53,7 +53,6 @@ public class FragmentSecond extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second,container,false);
-
         mButtonChooseImage = view.findViewById(R.id.button_choose_image);
         mButtonUpload = view.findViewById(R.id.button_upload);
         mTextViewShowUploads = view.findViewById(R.id.text_view_show_uploads);
@@ -133,6 +132,8 @@ public class FragmentSecond extends Fragment{
                                 Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString());
                                 String uploadId = mDatabaseRef.push().getKey();
                                 mDatabaseRef.child(uploadId).setValue(upload);
+                                mEditTextFileName.setText("");
+                                mImageView.setImageResource(0);
                         }
 
                     })

@@ -61,6 +61,7 @@ public class MainFragment extends Fragment {
                 DetailFragment detailFragment = new DetailFragment();
                 Bundle args = new Bundle();
                 Upload clickedItem=mUploads.get(position);
+                args.putString("IKey", clickedItem.getKey());
                 args.putString("IName", clickedItem.getName());
                 args.putString("IUrl", clickedItem.getImageUrl());
                 detailFragment.setArguments(args);
