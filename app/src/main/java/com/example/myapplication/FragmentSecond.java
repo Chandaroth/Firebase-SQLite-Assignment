@@ -41,6 +41,7 @@ public class FragmentSecond extends Fragment{
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
+    private EditText mEditTextPrice;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
@@ -56,10 +57,10 @@ public class FragmentSecond extends Fragment{
         mButtonChooseImage = view.findViewById(R.id.button_choose_image);
         mButtonUpload = view.findViewById(R.id.button_upload);
         mTextViewShowUploads = view.findViewById(R.id.text_view_show_uploads);
+        mEditTextPrice=view.findViewById(R.id.edit_text_product_price);
         mEditTextFileName = view.findViewById(R.id.edit_text_file_name);
         mImageView = view.findViewById(R.id.image_view);
         mProgressBar = view.findViewById(R.id.progress_bar);
-
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
@@ -129,10 +130,13 @@ public class FragmentSecond extends Fragment{
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                                 Uri downloadUrl = urlTask.getResult();
-                                Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString());
+                                Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                        downloadUrl.toString(),
+                                        "$"+mEditTextPrice.getText().toString().trim());
                                 String uploadId = mDatabaseRef.push().getKey();
                                 mDatabaseRef.child(uploadId).setValue(upload);
                                 mEditTextFileName.setText("");
+                                mEditTextPrice.setText("");
                                 mImageView.setImageResource(0);
                         }
 

@@ -5,6 +5,7 @@ public class Upload {
     private String mName;
     private String mImageUrl;
     private String mKey;
+    private String mPrice;
     private int position;
 
     public Upload (int position){
@@ -15,17 +16,26 @@ public class Upload {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl) {
+    public Upload(String name, String imageUrl, String price) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
 
         mName = name;
         mImageUrl = imageUrl;
+        mPrice=price;
     }
 
     public String getName() {
         return mName;
+    }
+
+    public void setPrice(String price) {
+        mPrice = price;
+    }
+
+    public String getPrice() {
+        return mPrice;
     }
 
     public void setName(String name) {

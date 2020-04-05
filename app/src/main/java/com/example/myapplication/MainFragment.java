@@ -63,6 +63,7 @@ public class MainFragment extends Fragment {
                 Upload clickedItem=mUploads.get(position);
                 args.putString("IKey", clickedItem.getKey());
                 args.putString("IName", clickedItem.getName());
+                args.putString("IPrice",clickedItem.getPrice());
                 args.putString("IUrl", clickedItem.getImageUrl());
                 detailFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.container_fragment, detailFragment);

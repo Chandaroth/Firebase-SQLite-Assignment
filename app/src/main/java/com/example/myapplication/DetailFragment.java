@@ -45,30 +45,32 @@ public class DetailFragment extends Fragment {
     private Button BtnDetailUpdate;
     private Button BtnEditDetail;
     private Button BtnBrowseImage;
-    private TextView DetailTextView;
-
-    private ProgressBar progressbarDetail;
+    private TextView DetailName;
+    private EditText DetailPrice;
     private Uri mImageUri;
-    private StorageReference mStorageRef;
+
+   /* private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
-
+*/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        DetailTextView = view.findViewById(R.id.txtNameDetail);
+        DetailName = view.findViewById(R.id.txtNameDetail);
         DetailImageView = view.findViewById(R.id.imageDetail);
+        DetailPrice=view.findViewById(R.id.txtPriceDetail);
         BtnDetailUpdate = view.findViewById(R.id.btnUpdateDetail);
         BtnEditDetail = view.findViewById(R.id.btnEditDetail);
         BtnBrowseImage = view.findViewById(R.id.btnBrowseDetail);
 
-        progressbarDetail = view.findViewById(R.id.progressbarDetail);
-
         String IName = getArguments().getString("IName");
         String IUrl = getArguments().getString("IUrl");
+        String IPrice=getArguments().getString("IPrice");
         final String IKey = getArguments().getString("IKey");
-        DetailTextView.setText(IName);
+        DetailName.setText(IName);
+        DetailPrice.setText(IPrice);
+
         Picasso.with(getActivity())
                 .load(IUrl)
                 .placeholder(R.drawable.ic_menu_gallery)
@@ -80,7 +82,7 @@ public class DetailFragment extends Fragment {
         BtnBrowseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "Select BtnBrowseImage", Toast.LENGTH_SHORT).show();
+
                 openFileChooser();
             }
         });
@@ -88,35 +90,12 @@ public class DetailFragment extends Fragment {
         BtnEditDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "Select BtnEditDetail", Toast.LENGTH_SHORT).show();
-                final EditText EditTextProductName = new EditText(v.getContext());
-                final AlertDialog.Builder EditProductNameDialog = new AlertDialog.Builder(v.getContext());
-                EditProductNameDialog.setTitle("Edit Your Data");
-                EditProductNameDialog.setMessage("Enter New Product Name");
-                EditProductNameDialog.setView(EditTextProductName);
-                EditProductNameDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String newProductName = EditTextProductName.getText().toString();
-                        DetailTextView.setText(newProductName);
-                        /*try {
-                            FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
-                                    .child("name").setValue(DetailTextView.getText().toString());
-                            Toast.makeText(getActivity(), "Update Successfully", Toast.LENGTH_SHORT).show();
-                        }catch (Exception e){
-                            Toast.makeText(getActivity(), "Error: "+e.toString(), Toast.LENGTH_SHORT).show();
-                        }*/
-
-                    }
-                });
-
-                EditProductNameDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        return;
-                    }
-                });
-                EditProductNameDialog.create().show();
+                if(DetailPrice.isEnabled()==false) {
+                    DetailPrice.setEnabled(true);
+                    DetailPrice.requestFocus();
+                }else{
+                    DetailPrice.setEnabled(false);
+                }
             }
         });
 
@@ -125,7 +104,9 @@ public class DetailFragment extends Fragment {
             public void onClick(View v) {
                 try {
                     FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
-                            .child("name").setValue(DetailTextView.getText().toString());
+                            .child("name").setValue(DetailName.getText().toString());
+                    FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
+                            .child("price").setValue(DetailPrice.getText().toString());
                     ShowAll();
                     Toast.makeText(getActivity(), "Update Successfully", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
@@ -143,19 +124,19 @@ public class DetailFragment extends Fragment {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
-    private String getFileExtension(Uri uri) {
+ /*   private String getFileExtension(Uri uri) {
         ContentResolver cR = getContext().getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
+    }*/
 
 
     private void ShowAll() {
-    FragmentManager fragmentManager = getFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-    MainFragment mainFragment = new MainFragment();
-                fragmentTransaction.replace(R.id.container_fragment,mainFragment);
-                fragmentTransaction.commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MainFragment mainFragment = new MainFragment();
+        fragmentTransaction.replace(R.id.container_fragment,mainFragment);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -167,7 +148,4 @@ public class DetailFragment extends Fragment {
             Picasso.with(getActivity()).load(mImageUri).into(DetailImageView);
         }
     }
-
-
-
 }

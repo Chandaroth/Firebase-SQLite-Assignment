@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/txtName"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
-
+    android:layout_marginTop="?android:attr/actionBarSize">
     <LinearLayout
-        android:background="#FF9800"
-        android:gravity="center"
-        android:id="@+id/line1"
+        android:id="@+id/Line2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -19,55 +18,64 @@
         app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998">
-
+        app:layout_constraintVertical_bias="0.0">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:paddingLeft="10dp"
-            android:fontFamily="sans-serif-black"
+            android:textSize="25dp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:text="Product Name: "
+            android:text="Product's Detail"
+            android:textColor="#FF9800"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/Line2"
+        app:layout_constraintTop_toBottomOf="@+id/Line2"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/txtNameDetail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Product Name: "
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtPriceDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@android:color/white"
-            android:text="Detail"
-            android:textAlignment="center"
-            android:textSize="18sp"
-
+            android:gravity="right"
+            android:inputType="numberDecimal"
+            android:paddingRight="10dp"
+            android:text="Price"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintHorizontal_bias="0.517"
-
             app:layout_constraintVertical_bias="0.096" />
-        <ProgressBar
-            android:id="@+id/progressbarDetail"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button_upload"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="16dp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageDetail"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:scaleType="fitCenter"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1"
-        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <Button
@@ -75,10 +83,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-
         android:background="#FF9800"
-        android:text="Browse Image
-"
+        android:text="Browse Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.551"
@@ -104,14 +110,15 @@
         android:id="@+id/btnEditDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF9800"
-        android:text="Edit"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:background="#FF9800"
+        android:text="Edit Price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageDetail"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
