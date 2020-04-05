@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 import static android.app.Activity.RESULT_OK;
 
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment{
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView DetailImageView;
@@ -39,14 +39,14 @@ public class DetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         DetailName = view.findViewById(R.id.txtNameDetail);
         DetailImageView = view.findViewById(R.id.imageDetail);
-        DetailPrice=view.findViewById(R.id.txtPriceDetail);
+        DetailPrice = view.findViewById(R.id.txtPriceDetail);
         BtnDetailUpdate = view.findViewById(R.id.btnUpdateDetail);
         BtnEditDetail = view.findViewById(R.id.btnEditDetail);
 
 
         String IName = getArguments().getString("IName");
         String IUrl = getArguments().getString("IUrl");
-        String IPrice=getArguments().getString("IPrice");
+        String IPrice = getArguments().getString("IPrice");
         final String IKey = getArguments().getString("IKey");
         DetailName.setText(IName);
         DetailPrice.setText(IPrice);
@@ -61,10 +61,10 @@ public class DetailFragment extends Fragment {
         BtnEditDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(DetailPrice.isEnabled()==false) {
+                if (DetailPrice.isEnabled() == false) {
                     DetailPrice.setEnabled(true);
                     DetailPrice.requestFocus();
-                }else{
+                } else {
                     DetailPrice.setEnabled(false);
                 }
             }
@@ -99,7 +99,7 @@ public class DetailFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         MainFragment mainFragment = new MainFragment();
-        fragmentTransaction.replace(R.id.container_fragment,mainFragment);
+        fragmentTransaction.replace(R.id.container_fragment, mainFragment);
         fragmentTransaction.commit();
     }
 
@@ -112,4 +112,6 @@ public class DetailFragment extends Fragment {
             Picasso.with(getActivity()).load(mImageUri).into(DetailImageView);
         }
     }
+
+
 }

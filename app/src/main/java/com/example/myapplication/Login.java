@@ -75,11 +75,11 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
-
                             //Pass Email when Login Successful to Drawer
                             Intent intent = new Intent(Login.this, DrawerActivity.class);
                             intent.putExtra("message",email);
                             startActivity(intent);
+                            finish();
                             //startActivity(new Intent(getApplicationContext(),DrawerActivity.class));
                         }else{
                             Toast.makeText(Login.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
