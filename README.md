@@ -5,8 +5,8 @@
 	#12:26AM	4/April/2020	(About Activity)
 	#2:47PM 	4/April/2020	(Update Text)
 	#6:50PM 	5/April/2020	(Add Price and Update Price)
-#Mini project From Date 31-03-2020
-	#Dear all,
+	
+Mini project From Date 31-03-2020
 For the mini project, we have 2 groups as follows:
 Group 1: HEAN CHANDAROTH, LOR PHETH,MENG SOKLEARP
 Group 2: SAY RATTANA,SENG SENGHAY
