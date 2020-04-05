@@ -46,7 +46,7 @@ public class DetailFragment extends Fragment{
 
         String IName = getArguments().getString("IName");
         String IUrl = getArguments().getString("IUrl");
-        String IPrice = getArguments().getString("IPrice");
+        final String IPrice = getArguments().getString("IPrice");
         final String IKey = getArguments().getString("IKey");
         DetailName.setText(IName);
         DetailPrice.setText(IPrice);
@@ -73,16 +73,19 @@ public class DetailFragment extends Fragment{
         BtnDetailUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
-                            .child("name").setValue(DetailName.getText().toString());
-                    FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
-                            .child("price").setValue(DetailPrice.getText().toString());
-                    ShowAll();
-                    Toast.makeText(getActivity(), "Update Successfully", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(getActivity(), "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
-                }
+                if (!DetailPrice.getText().toString().equals(IPrice)){
+                    try {
+                        FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
+                                .child("name").setValue(DetailName.getText().toString());
+                        FirebaseDatabase.getInstance().getReference().child("uploads").child(IKey)
+                                .child("price").setValue(DetailPrice.getText().toString());
+                        ShowAll();
+                        Toast.makeText(getActivity(), "Update Successfully", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }else return;
+
             }
         });
         return view;
