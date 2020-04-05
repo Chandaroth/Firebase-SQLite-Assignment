@@ -33,7 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edit_text_product_price"
-            android:hint="Enter Product Price">
+            android:hint="Enter Product Price"
+            android:inputType="numberDecimal">
         </EditText>
     </LinearLayout>
 
