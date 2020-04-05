@@ -1,4 +1,4 @@
-# Firebase-SQLite-Assignment
+# Mini project From Date 31-03-2020 For the mini project
 	#1:00PM		3/April/2020	(Insert to Firebase)
 	#5:41PM		3/April/2020	(Retrive to RecyclerView)
 	#9:24PM		3/April/2020	(1/Long Press Item -> Delete Item,2/Press Item -> Detail)
@@ -6,7 +6,7 @@
 	#2:47PM 	4/April/2020	(Update Text)
 	#6:50PM 	5/April/2020	(Add Price and Update Price)
 	
-Mini project From Date 31-03-2020 For the mini project, we have 2 groups as follows:
+we have 2 groups as follows:
 - Group 1: HEAN CHANDAROTH, LOR PHETH,MENG SOKLEARP
 - Group 2: SAY RATTANA,SENG SENGHAY<br/>
 
