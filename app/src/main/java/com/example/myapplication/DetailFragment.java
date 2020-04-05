@@ -1,41 +1,25 @@
 package com.example.myapplication;
 
-import android.content.ContentResolver;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import com.example.myapplication.firebase.Upload;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
 import static android.app.Activity.RESULT_OK;
 
 public class DetailFragment extends Fragment {
@@ -49,10 +33,6 @@ public class DetailFragment extends Fragment {
     private EditText DetailPrice;
     private Uri mImageUri;
 
-   /* private StorageReference mStorageRef;
-    private DatabaseReference mDatabaseRef;
-    private StorageTask mUploadTask;
-*/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +42,7 @@ public class DetailFragment extends Fragment {
         DetailPrice=view.findViewById(R.id.txtPriceDetail);
         BtnDetailUpdate = view.findViewById(R.id.btnUpdateDetail);
         BtnEditDetail = view.findViewById(R.id.btnEditDetail);
-        BtnBrowseImage = view.findViewById(R.id.btnBrowseDetail);
+
 
         String IName = getArguments().getString("IName");
         String IUrl = getArguments().getString("IUrl");
@@ -77,15 +57,6 @@ public class DetailFragment extends Fragment {
                 .fit()
                 .centerCrop()
                 .into(DetailImageView);
-
-
-        BtnBrowseImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openFileChooser();
-            }
-        });
 
         BtnEditDetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,13 +94,6 @@ public class DetailFragment extends Fragment {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
-
- /*   private String getFileExtension(Uri uri) {
-        ContentResolver cR = getContext().getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }*/
-
 
     private void ShowAll() {
         FragmentManager fragmentManager = getFragmentManager();
