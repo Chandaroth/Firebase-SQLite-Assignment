@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_marginTop="?android:attr/actionBarSize"
     android:layout_height="match_parent"
+    android:background="#A3FFC107"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingRight="16dp"
+        android:paddingBottom="16dp"
         android:paddingLeft="16dp">
 
         <TextView
@@ -23,7 +25,7 @@
             - Insert E-Mail/Username to SQLite\n
             - Login Authentication\n
             - Navigation Drawer\n
-            - Select Image form Local Storage\n
+            - Choose Image from Local Storage\n
             - Progressbar\n
             - Insert Text and Image to Firebase\n
             - Retrieve Text and Image to \n
@@ -32,7 +34,8 @@
             - Update Text to Firebase\n
             - Reset Password Authentication\n
             - Logout Authentication\n
-            - About"
+            - About\n
+            - Build APK Debug File"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mini project From Date 31-03-2020 "
-            android:textColor="#FF9800"
+            android:textColor="#FF5722"
             android:textAlignment="center"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,8 +64,8 @@
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text="The project is ended on \n07-04-2020\n\nGROUP 1"
-            android:textColor="#FF9800"
+            android:text="The project is ended on \nDate 07-04-2020\nBy Group 1"
+            android:textColor="#FF5722"
             android:paddingBottom="10dp"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

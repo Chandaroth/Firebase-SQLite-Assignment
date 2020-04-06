@@ -9,7 +9,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="450dp"
         android:layout_above="@id/progress_bar"
         android:src="@drawable/ic_menu_gallery"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="10dp" />
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

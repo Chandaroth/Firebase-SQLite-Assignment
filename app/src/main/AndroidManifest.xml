@@ -43,7 +43,6 @@
             </intent-filter>-->
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
