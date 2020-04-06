@@ -130,7 +130,11 @@ public class DrawerActivity extends AppCompatActivity implements
                 return true;
 
             case R.id.menu_about:
-                startActivity(new Intent(getApplicationContext(),AboutActivity.class));
+                //startActivity(new Intent(getApplicationContext(),AboutActivity.class));
+                fragmentManager=getSupportFragmentManager();
+                fragmentTransaction=fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.container_fragment,new FragmentAbout());
+                fragmentTransaction.commit();
                 return true;
         }
         return true;
