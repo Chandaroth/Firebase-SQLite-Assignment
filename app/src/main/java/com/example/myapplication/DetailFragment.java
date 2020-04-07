@@ -26,7 +26,7 @@ public class DetailFragment extends Fragment{
     private ImageView DetailImageView;
     private Button BtnDetailUpdate;
     private Button BtnEditDetail;
-    private Button BtnBrowseImage;
+    private TextView mTextViewShowUploads;
     private TextView DetailName;
     private EditText DetailPrice;
     private Uri mImageUri;
@@ -40,6 +40,7 @@ public class DetailFragment extends Fragment{
         DetailPrice = view.findViewById(R.id.txtPriceDetail);
         BtnDetailUpdate = view.findViewById(R.id.btnUpdateDetail);
         BtnEditDetail = view.findViewById(R.id.btnEditDetail);
+        mTextViewShowUploads=view.findViewById(R.id.text_view_show_uploads);
 
 
         String IName = getArguments().getString("IName");
@@ -86,6 +87,18 @@ public class DetailFragment extends Fragment{
 
             }
         });
+
+        mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MainFragment mainFragment = new MainFragment();
+                fragmentTransaction.replace(R.id.container_fragment, mainFragment);
+                fragmentTransaction.commit();
+            }
+        });
+
         return view;
     }
 
