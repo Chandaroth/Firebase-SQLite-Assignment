@@ -43,7 +43,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.drawable.ic_menu_gallery)
                 .fit()
-                .centerCrop()
+                .centerInside()
                 .into(holder.imageView);
     }
 

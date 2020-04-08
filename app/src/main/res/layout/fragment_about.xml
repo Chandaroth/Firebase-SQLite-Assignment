@@ -22,13 +22,13 @@
             android:text="Feature of this Application:\n
             - Splash Screen of Application\n
             - Register to Firebase Authentication\n
-            - Insert E-Mail/Username to SQLite\n
+            - Insert E-Mail to SQLite\n
             - Login Authentication\n
             - Navigation Drawer\n
             - Choose Image from Local Storage\n
             - Progressbar\n
             - Insert Text and Image to Firebase\n
-            - Retrieve Text and Image to \n
+            - Retrieve Text and Image to\n
               Recylerview\n
             - Long Press on List Item to Delete\n
             - Show Image using Picaso\n

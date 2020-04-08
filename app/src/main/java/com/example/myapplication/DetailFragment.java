@@ -54,7 +54,7 @@ public class DetailFragment extends Fragment{
                 .load(IUrl)
                 .placeholder(R.drawable.ic_menu_gallery)
                 .fit()
-                //.centerCrop()
+                .centerInside()
                 .into(DetailImageView);
 
         BtnEditDetail.setOnClickListener(new View.OnClickListener() {
