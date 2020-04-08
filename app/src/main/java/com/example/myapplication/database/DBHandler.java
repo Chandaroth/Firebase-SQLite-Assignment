@@ -25,8 +25,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String USER_TABLE = "CREATE TABLE " + User.UserDetails.TABLE_NAME + " ( " +
                 User.UserDetails.COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                //User.UserDetails.COL_NAME + " TEXT," +
                 User.UserDetails.COL_EMAIL + " TEXT)";
+
+
+                //User.UserDetails.COL_NAME + " TEXT," +
                 //User.UserDetails.COL_PHONE + " TEXT," +
                 //User.UserDetails.COL_PASSWORD + " TEXT)";
         db.execSQL(USER_TABLE);
@@ -37,11 +39,11 @@ public class DBHandler extends SQLiteOpenHelper {
     public boolean addUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-
-
-       // values.put(User.UserDetails.COL_ID, id);
-        //values.put(User.UserDetails.COL_NAME, name);
         values.put(User.UserDetails.COL_EMAIL, email);
+
+        // values.put(User.UserDetails.COL_ID, id);
+        //values.put(User.UserDetails.COL_NAME, name);
+
         //values.put(User.UserDetails.COL_PHONE, phone);
         //values.put(User.UserDetails.COL_PASSWORD, password);
 
@@ -52,6 +54,8 @@ public class DBHandler extends SQLiteOpenHelper {
             return false;
         }
     }
+
+
 /*
     //------------------------------Update------------------------------------
     public boolean updateUser(int id, String name, String email, String phone) {
