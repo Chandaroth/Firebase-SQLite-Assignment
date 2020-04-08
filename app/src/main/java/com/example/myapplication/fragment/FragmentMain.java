@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.fragment;
 
 
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.R;
+import com.example.myapplication.adapter.ImageAdapter;
 import com.example.myapplication.firebase.Upload;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFragment extends Fragment {
+public class FragmentMain extends Fragment {
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
 
@@ -63,15 +65,15 @@ public class MainFragment extends Fragment {
                 //Toast.makeText(getActivity(), "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                DetailFragment detailFragment = new DetailFragment();
+                FragmentDetail fragmentDetail = new FragmentDetail();
                 Bundle args = new Bundle();
                 Upload clickedItem=mUploads.get(position);
                 args.putString("IKey", clickedItem.getKey());
                 args.putString("IName", clickedItem.getName());
                 args.putString("IPrice",clickedItem.getPrice());
                 args.putString("IUrl", clickedItem.getImageUrl());
-                detailFragment.setArguments(args);
-                fragmentTransaction.replace(R.id.container_fragment, detailFragment);
+                fragmentDetail.setArguments(args);
+                fragmentTransaction.replace(R.id.container_fragment, fragmentDetail);
                 fragmentTransaction.commit();
             }
 
@@ -111,9 +113,9 @@ public class MainFragment extends Fragment {
         });
         return view;
     }
-    @Override
+    /*@Override
     public void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
-    }
+    }*/
 }

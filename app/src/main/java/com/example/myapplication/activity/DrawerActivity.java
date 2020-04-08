@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +19,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.myapplication.R;
+import com.example.myapplication.fragment.FragmentAbout;
+import com.example.myapplication.fragment.FragmentSecond;
+import com.example.myapplication.fragment.FragmentMain;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -58,7 +62,7 @@ public class DrawerActivity extends AppCompatActivity implements
         //Load Default Fragment
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment,new MainFragment());
+        fragmentTransaction.add(R.id.container_fragment,new FragmentMain());
         fragmentTransaction.commit();
 
         // Get the transferred data from source login.
@@ -83,7 +87,7 @@ public class DrawerActivity extends AppCompatActivity implements
             case R.id.home:
                 fragmentManager=getSupportFragmentManager();
                 fragmentTransaction=fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.container_fragment,new MainFragment());
+                fragmentTransaction.replace(R.id.container_fragment,new FragmentMain());
                 fragmentTransaction.commit();
                 return true;
             case R.id.add_data:
@@ -175,6 +179,11 @@ public class DrawerActivity extends AppCompatActivity implements
         passwordResetDialog.create().show();
     }
 
-}
+            @Override
+            public void onBackPressed() {
+                Toast.makeText(DrawerActivity.this,"There is no back action",Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
 
 

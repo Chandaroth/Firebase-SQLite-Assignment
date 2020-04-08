@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.fragment;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication.R;
 import com.example.myapplication.firebase.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -87,8 +89,8 @@ public class FragmentSecond extends Fragment{
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                MainFragment mainFragment = new MainFragment();
-                fragmentTransaction.replace(R.id.container_fragment, mainFragment);
+                FragmentMain fragmentMain = new FragmentMain();
+                fragmentTransaction.replace(R.id.container_fragment, fragmentMain);
                 fragmentTransaction.commit();
             }
         });
