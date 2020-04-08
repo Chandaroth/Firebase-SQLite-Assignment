@@ -47,10 +47,12 @@ public class MainFragment extends Fragment {
 
         mRecyclerView = view.findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
         mProgressCircle = view.findViewById(R.id.progress_circle);
         mUploads = new ArrayList<>();
         mAdapter = new ImageAdapter(getActivity(), mUploads);
